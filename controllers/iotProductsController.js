@@ -7,7 +7,6 @@ exports.createIotProduct = async (req, res) => {
     let { productName, specification, brandName, category, subcategory, description } = req.body;
 
     // Log uploaded file and body for debugging
-    console.log("File Uploaded:", req.file);
     console.log("Body:", req.body);
 
     // Ensure a file is uploaded
@@ -38,7 +37,7 @@ exports.createIotProduct = async (req, res) => {
       description,
       image: avatarUrl, // Store the image URL in the database
     });
-
+  console.log(newProduct)
     // Save the product
     await newProduct.save();
 

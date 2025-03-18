@@ -13,11 +13,11 @@ const followUpSchema = new mongoose.Schema({
   },
   empid: {
     type: String,
-    required: true,
+   
   },
   gender: {
     type: String,
-    required: true,
+    
   },
   status: {
     type: String,
