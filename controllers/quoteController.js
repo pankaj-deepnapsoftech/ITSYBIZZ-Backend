@@ -58,14 +58,10 @@ const QuoteUser = async (req, res) => {
 // getting all quotes
 const GetQuotes = async (req, res) => {
   try {
-    const quotes = await quoteModel.find();
-    if (quotes.length > 0) {
-      res.status(200).json(quotes);
-    } else {
-      res.status(404).json({ message: "No quotes found" });
-    }
+    const GetQuotes = await quoteModel.find();
+    res.json(GetQuotes);
   } catch (error) {
-    res.status(500).json({ error: "An error occurred while fetching quotes" });
+    throw new Error(error);
   }
 };
 

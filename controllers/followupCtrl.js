@@ -67,4 +67,12 @@ const deleteFollowUP = async (req, res) => {
   }
 };
 
-module.exports = { addFollowUP, updateFollowUP, deleteFollowUP };
+const GetFollowUp = async (req, res) => {
+  try {
+    const getUsers = await FollowUP.find();
+    res.json(getUsers);
+  } catch (error) {
+    throw new Error(error);
+  }
+}
+module.exports = { addFollowUP, updateFollowUP, deleteFollowUP,GetFollowUp };

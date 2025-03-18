@@ -11,19 +11,14 @@ const CareerDetail = asyncHandler(async (req, res) => {
   }
 });
 
-const GetCareerDetail = async (req, res) => {
+const GetCareerDetail = asyncHandler(async (req, res) => {
   try {
-    const getCareer = await careerModel.find();
-    if (getCareer.length > 0) {
-      res.send(getCareer);
-    } else {
-      res.send("No user found");
-    }
+    const getUsers = await careerModel.find();
+    res.json(getUsers);
   } catch (error) {
-    res.send(error.message);
+    throw new Error(error);
   }
-};
-
+});
 const DeleteCareer = async (req, res) => {
   try {
     const data = req.params.id;

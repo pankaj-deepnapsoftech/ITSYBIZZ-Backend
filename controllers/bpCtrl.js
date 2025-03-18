@@ -75,4 +75,13 @@ const deleteBP = async (req, res) => {
   }
 };
 
-module.exports = { addBP, updateBP, deleteBP };
+const getBP = async (req, res) => {
+  try {
+     const getbp = await BP.find();
+     res.json(getbp);
+   } catch (error) {
+     throw new Error(error);
+   }
+};
+
+module.exports = { addBP, updateBP, deleteBP ,getBP};

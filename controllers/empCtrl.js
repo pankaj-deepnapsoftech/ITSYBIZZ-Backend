@@ -69,4 +69,12 @@ const deleteEmployee = async (req, res) => {
   }
 };
 
-module.exports = { addEmployee, updateEmployee, deleteEmployee };
+const GetEmployee = async (req, res) => {
+  try {
+    const getEmployee = await Employee.find();
+    res.json(getEmployee);
+  } catch (error) {
+    throw new Error(error);
+  }
+};
+module.exports = { addEmployee, updateEmployee, deleteEmployee ,GetEmployee};

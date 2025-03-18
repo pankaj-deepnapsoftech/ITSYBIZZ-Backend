@@ -72,4 +72,13 @@ const deleteRP = async (req, res) => {
   }
 };
 
-module.exports = { addRp, updateRP, deleteRP };
+const getRP = async (req, res) => {
+  try {
+     const getrp = await RP.find();
+     res.json(getrp);
+   } catch (error) {
+     throw new Error(error);
+   }
+};
+
+module.exports = { addRp, updateRP, deleteRP,getRP };

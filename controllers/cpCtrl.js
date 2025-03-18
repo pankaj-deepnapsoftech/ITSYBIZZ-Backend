@@ -71,4 +71,13 @@ const deleteCP = async (req, res) => {
   }
 };
 
-module.exports = { addCP, updateCP, deleteCP };
+const getCP = async (req, res) => {
+  try {
+     const getcp = await CP.find();
+     res.json(getcp);
+   } catch (error) {
+     throw new Error(error);
+   }
+};
+
+module.exports = { addCP, updateCP, deleteCP ,getCP};

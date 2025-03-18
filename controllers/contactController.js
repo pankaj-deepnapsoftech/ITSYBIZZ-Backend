@@ -43,20 +43,11 @@ const ContactEntry = async (req, res) => {
 
 const ContactDetails = async (req, res) => {
   try {
-    const list = await contactModel.find();
-
-    if (list.length > 0) {
-      res.status(200).send({
-        success: true,
-        message: "all contact list",
-        list,
-      });
-    } else {
-      res.status(404).json({ message: "No user found" });
-    }
-  } catch (error) {
-    res.status(500).json({ error: error.message });
-  }
+     const getEmployee = await contactModel.find();
+     res.json(getEmployee);
+   } catch (error) {
+     throw new Error(error);
+   }
 };
 
 const SearchContact = async (req, res) => {
